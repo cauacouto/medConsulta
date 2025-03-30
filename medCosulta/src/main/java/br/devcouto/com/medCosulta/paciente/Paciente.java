@@ -1,12 +1,11 @@
 package br.devcouto.com.medCosulta.paciente;
 
 import br.devcouto.com.medCosulta.endereco.Endereco;
-import jakarta.persistence.Embedded;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
-public class paciente {
+@Entity
+@Table(name = "paciente")
+public class Paciente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,12 +19,16 @@ public class paciente {
     private Endereco endereco;
 
 
-    public paciente(DadosPaciente dados) {
+    public Paciente(DadosPaciente dados) {
         this.nome = dados.nome();
         this.cpf = dados.cpf();
         this.email = dados.email();
         this.telefone =dados.telefone();
         this.endereco = new Endereco(dados.endereco());
+    }
+
+    public Paciente() {
+
     }
 
     public Long getId() {
@@ -86,5 +89,17 @@ public class paciente {
         if (dados.endereco() != null) {
             this.endereco.atualizarInformacoes(dados.endereco());
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Paciente{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", email='" + email + '\'' +
+                ", cpf='" + cpf + '\'' +
+                ", telefone='" + telefone + '\'' +
+                ", endereco=" + endereco +
+                '}';
     }
 }

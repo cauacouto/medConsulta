@@ -1,4 +1,4 @@
-package br.devcouto.com.medCosulta.infra;
+package br.devcouto.com.medCosulta.infra.exception;
 
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.ResponseEntity;
