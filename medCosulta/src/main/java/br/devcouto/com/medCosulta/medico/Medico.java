@@ -8,7 +8,7 @@ import jakarta.persistence.*;
 
 
 
-    public class medico {
+    public class Medico {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private long id;
@@ -27,7 +27,7 @@ import jakarta.persistence.*;
 
 
 
-    public medico(DadosMedico dados) {
+    public Medico(DadosMedico dados) {
             this.nome=dados.nome();
 
             this.crm =dados.crm();
@@ -93,7 +93,7 @@ import jakarta.persistence.*;
         this.endereco = endereco;
     }
 
-    public medico() {
+    public Medico() {
 
     }
 
