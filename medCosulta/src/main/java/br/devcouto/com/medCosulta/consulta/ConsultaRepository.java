@@ -2,7 +2,15 @@ package br.devcouto.com.medCosulta.consulta;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ConsultaRepository extends JpaRepository<Consuta, Long> {
-    // Aqui você pode adicionar métodos personalizados, se necessário
-    // Exemplo: List<Consulta> findByMedicoId(Long medicoId);
+import java.time.LocalDateTime;
+
+public interface ConsultaRepository extends JpaRepository<Consulta, Long> {
+
+
+
+
+
+    boolean existsByMedicoIdAndDataAndMotivoCancelamentoIsNull(Long idMedico, LocalDateTime data);
+
+    boolean existsByPacienteIdAndDataBetween(Long idPaciente, LocalDateTime primeiroHorario, LocalDateTime ultimoHorario);
 }

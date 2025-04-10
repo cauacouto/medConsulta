@@ -9,9 +9,11 @@ import java.time.LocalDateTime;
 @Entity
  @Table(name = "consulta")
 
-public class Consuta {
-
-   @Id
+public class Consulta {
+     @Column(name = "motivo_cancelamento")
+    @Enumerated(EnumType.STRING)
+    private motivoCancelamento motivoCancelamento;
+    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
    private Long id;
     private LocalDateTime data;
@@ -23,14 +25,15 @@ public class Consuta {
     @JoinColumn(name = "paciente_id")
     private Paciente paciente;
 
-    public Consuta(Long id, LocalDateTime data, Paciente paciente, Medico medico) {
+    public Consulta(Long id, LocalDateTime data, Paciente paciente, Medico medico) {
         this.id = id;
         this.data = data;
         this.paciente = paciente;
         this.medico = medico;
+
     }
 
-    public Consuta() {
+    public Consulta() {
 
     }
 
@@ -64,5 +67,9 @@ public class Consuta {
 
     public void setPaciente(Paciente paciente) {
         this.paciente = paciente;
+    }
+
+    public void cancelar(motivoCancelamento motivo) {
+        this.motivoCancelamento = motivo;
     }
 }

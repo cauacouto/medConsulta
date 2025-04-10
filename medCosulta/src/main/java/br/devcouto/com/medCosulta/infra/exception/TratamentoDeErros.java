@@ -1,5 +1,6 @@
 package br.devcouto.com.medCosulta.infra.exception;
 
+import br.devcouto.com.medCosulta.consulta.ValidacaoException;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -21,6 +22,15 @@ public class TratamentoDeErros {
         return ResponseEntity.badRequest().body(erro .stream().map(DadosErroDeValidacao::new).toList());
 
     }
+
+    @ExceptionHandler(ValidacaoException.class)
+    public ResponseEntity tratraRegraDeNegocios(ValidacaoException e){
+        return ResponseEntity.badRequest().body(e.getMessage());
+    }
+
+
+
+
     private record DadosErroDeValidacao(String campo, String mensagem) {
 
         public DadosErroDeValidacao(FieldError erro) {
