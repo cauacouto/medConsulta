@@ -1,5 +1,5 @@
 🩺 MedConsulta
-
+![Java](https://img.shields.io/badge/Java-17-orange)   ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.4.4-brightgreen)  ![PostgreSQL](https://img.shields.io/badge/Database-PostgreSQL-336791?logo=postgresql&logoColor=white)
 ---
 
 
